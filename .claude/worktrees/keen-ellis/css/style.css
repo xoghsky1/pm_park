@@ -1,8 +1,8 @@
 /* ===== Design Tokens ===== */
 :root {
-  --color-primary: #3182F6;
-  --color-primary-light: #EBF3FE;
-  --color-primary-dark: #1B64DA;
+  --color-primary: #4F46E5;
+  --color-primary-light: #EEF2FF;
+  --color-primary-dark: #4338CA;
   --color-text: #171717;
   --color-text-secondary: #525252;
   --color-text-tertiary: #a3a3a3;
@@ -584,15 +584,6 @@ button {
   margin-bottom: var(--space-sm);
 }
 
-.project-card__subtitle {
-  display: block;
-  font-size: var(--fs-small);
-  font-weight: var(--fw-medium);
-  color: var(--color-text-secondary);
-  margin-top: var(--space-xs);
-  letter-spacing: 0;
-}
-
 .project-card__meta {
   display: flex;
   flex-wrap: wrap;
@@ -752,15 +743,6 @@ button {
   letter-spacing: -0.02em;
 }
 
-.modal__subtitle {
-  display: block;
-  font-size: var(--fs-body);
-  font-weight: var(--fw-medium);
-  color: var(--color-text-secondary);
-  margin-top: var(--space-xs);
-  letter-spacing: 0;
-}
-
 .modal__scale {
   display: flex;
   flex-wrap: wrap;
@@ -838,41 +820,6 @@ button {
   height: 5px;
   border-radius: 50%;
   background: var(--color-primary);
-}
-
-/* ===== Side Projects ===== */
-.projects__side {
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-2xl);
-  border-top: 1px solid var(--color-border);
-}
-
-.projects__side-label {
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
-  color: var(--color-text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-xl);
-}
-
-.projects__grid--side {
-  gap: var(--space-xl);
-}
-
-.project-card--side {
-  border-left-color: var(--color-text-tertiary);
-  background: var(--color-bg-subtle);
-}
-
-.project-card--side:hover {
-  border-left-color: var(--color-primary);
-}
-
-.project-card__num--side {
-  font-size: var(--fs-h3);
-  color: var(--color-text-tertiary);
-  opacity: 0.5;
 }
 
 /* ===== Competencies ===== */
