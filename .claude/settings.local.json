@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(textutil -convert txt \"/Users/ttpark/Desktop/Park/webfolio/토스증권.doc\" -output \"/Users/ttpark/Desktop/Park/webfolio/토스증권.txt\")",
-      "mcp__Claude_Preview__preview_start",
-      "Bash(open \"/Users/ttpark/Desktop/Park/이직 준비/webfolio/index.html\")"
-    ]
-  }
-}
