@@ -47,18 +47,48 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectCards = document.querySelectorAll('[data-modal]');
   const modals = document.querySelectorAll('.modal');
 
+  const PROJECT_MAIN_IDS = ['modal-1', 'modal-2', 'modal-3'];
+  const PROJECT_SIDE_IDS = ['modal-side-1', 'modal-side-2'];
+
+  function getProjectSequence(modalId) {
+    if (PROJECT_MAIN_IDS.includes(modalId)) return PROJECT_MAIN_IDS;
+    if (PROJECT_SIDE_IDS.includes(modalId)) return PROJECT_SIDE_IDS;
+    return null;
+  }
+
+  function updateProjectModalNav(modalEl) {
+    if (!modalEl) return;
+    const seq = getProjectSequence(modalEl.id);
+    const prevBtn = modalEl.querySelector('.modal__edge-nav--prev');
+    const nextBtn = modalEl.querySelector('.modal__edge-nav--next');
+    if (!seq || !prevBtn || !nextBtn) return;
+    const idx = seq.indexOf(modalEl.id);
+    prevBtn.disabled = idx <= 0;
+    nextBtn.disabled = idx >= seq.length - 1;
+  }
+
   function openModal(id) {
     const modal = document.getElementById(id);
     if (!modal) return;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
+    updateProjectModalNav(modal);
   }
 
   function closeModal(modal) {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
+  }
+
+  function navigateProjectModal(fromModal, delta) {
+    const seq = getProjectSequence(fromModal.id);
+    if (!seq) return;
+    const idx = seq.indexOf(fromModal.id) + delta;
+    if (idx < 0 || idx >= seq.length) return;
+    closeModal(fromModal);
+    openModal(seq[idx]);
   }
 
   projectCards.forEach(card => {
@@ -70,14 +100,37 @@ document.addEventListener('DOMContentLoaded', () => {
   modals.forEach(modal => {
     modal.querySelector('.modal__overlay').addEventListener('click', () => closeModal(modal));
     modal.querySelector('.modal__close').addEventListener('click', () => closeModal(modal));
+
+    const prevNav = modal.querySelector('.modal__edge-nav--prev');
+    const nextNav = modal.querySelector('.modal__edge-nav--next');
+    if (prevNav) {
+      prevNav.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateProjectModal(modal, -1);
+      });
+    }
+    if (nextNav) {
+      nextNav.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateProjectModal(modal, 1);
+      });
+    }
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      modals.forEach(modal => {
-        if (modal.classList.contains('is-open')) closeModal(modal);
+      modals.forEach(m => {
+        if (m.classList.contains('is-open')) closeModal(m);
       });
     }
+
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    const compOpen = document.getElementById('compModal')?.classList.contains('is-open');
+    if (compOpen) return;
+    const openProject = Array.from(modals).find(m => m.classList.contains('is-open'));
+    if (!openProject || !getProjectSequence(openProject.id)) return;
+    e.preventDefault();
+    navigateProjectModal(openProject, e.key === 'ArrowLeft' ? -1 : 1);
   });
 
   // Competency Modal
@@ -116,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
       compCounter.textContent = `${idx + 1} / ${compData.length}`;
       prevBtn.disabled = idx === 0;
       nextBtn.disabled = idx === compData.length - 1;
+      compModal.classList.toggle('comp-modal--no-image', !d.img);
     }
 
     function openCompModal(idx) {

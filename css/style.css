@@ -701,6 +701,7 @@ button {
 .modal__overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -708,13 +709,13 @@ button {
 
 .modal__container {
   position: relative;
-  width: 90%;
-  max-width: 720px;
-  max-height: 85vh;
+  z-index: 2;
+  width: min(920px, 92vw);
+  max-height: min(88vh, 1000px);
   overflow-y: auto;
   background: var(--color-bg);
   border-radius: var(--radius-lg);
-  padding: var(--space-3xl);
+  padding: clamp(var(--space-xl), 3vw, var(--space-3xl)) clamp(var(--space-xl), 4vw, 2.75rem);
   box-shadow: var(--shadow-lg);
   transform: translateY(20px);
   transition: transform var(--transition-normal);
@@ -744,9 +745,68 @@ button {
   background: var(--color-bg-muted);
 }
 
+/* 화면 좌우 — 기본은 거의 투명, hover·포커스 시 선명 (닫기와 겹치지 않음) */
+.modal__edge-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-text);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.22s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.modal__edge-nav--prev {
+  left: max(12px, env(safe-area-inset-left, 0px));
+}
+
+.modal__edge-nav--next {
+  right: max(12px, env(safe-area-inset-right, 0px));
+}
+
+@media (hover: hover) {
+  .modal__edge-nav:not(:disabled) {
+    opacity: 0.18;
+  }
+
+  .modal__edge-nav:hover:not(:disabled),
+  .modal__edge-nav:focus-visible:not(:disabled) {
+    opacity: 1;
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@media (hover: none) {
+  .modal__edge-nav:not(:disabled) {
+    opacity: 0.5;
+  }
+}
+
+.modal__edge-nav:focus-visible:not(:disabled) {
+  opacity: 1;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.modal__edge-nav:disabled {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
 .modal__header {
   margin-bottom: var(--space-2xl);
-  padding-right: var(--space-2xl);
+  padding-right: clamp(2.5rem, 6vw, 3rem);
 }
 
 .modal__period {
@@ -787,6 +847,59 @@ button {
   font-weight: var(--fw-medium);
 }
 
+/* Side project modals — screenshot strip under header */
+.modal__media {
+  margin-bottom: var(--space-2xl);
+}
+
+.modal__media-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: min(44vh, 440px);
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+}
+
+.modal__media--multi {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.modal__media--multi .modal__media-wrap {
+  max-height: min(38vh, 340px);
+}
+
+/* 세로(포트레이트) 스크린샷 — 가로 16:9 박스 대신 높이 우선으로 맞춤 */
+.modal__media-wrap--portrait {
+  aspect-ratio: unset;
+  max-height: none;
+}
+
+.modal__media-wrap--portrait .modal__media-img {
+  width: auto;
+  max-width: 100%;
+  max-height: min(54vh, 560px);
+  height: auto;
+}
+
+.modal__media--multi .modal__media-wrap--portrait .modal__media-img {
+  max-height: min(48vh, 480px);
+}
+
 .modal__section {
   margin-bottom: var(--space-2xl);
   display: flex;
@@ -811,7 +924,7 @@ button {
 }
 
 .modal__section-content h4 {
-  font-size: var(--fs-small);
+  font-size: var(--fs-body);
   font-weight: var(--fw-bold);
   color: var(--color-text);
   margin-bottom: var(--space-sm);
@@ -820,10 +933,10 @@ button {
 }
 
 .modal__section-content p {
-  font-size: var(--fs-small);
+  font-size: var(--fs-body);
   color: var(--color-text-secondary);
   line-height: var(--leading-relaxed);
-  max-width: var(--content-width);
+  max-width: min(var(--content-width), 100%);
 }
 
 .modal__section-content ul {
@@ -833,7 +946,7 @@ button {
 }
 
 .modal__section-content li {
-  font-size: var(--fs-small);
+  font-size: var(--fs-body);
   color: var(--color-text-secondary);
   line-height: var(--leading-relaxed);
   padding-left: var(--space-lg);
@@ -918,6 +1031,11 @@ button {
   cursor: pointer;
 }
 
+.competencies__grid .comp-card,
+.competencies__grid--bottom .comp-card {
+  height: 100%;
+}
+
 .comp-card:hover {
   border-color: var(--color-primary);
   box-shadow: var(--shadow-md);
@@ -967,14 +1085,17 @@ button {
 .comp-card--has-img {
   padding: 0;
   overflow: hidden;
+  height: 100%;
+  min-height: 0;
 }
 
 .comp-card--has-img .comp-card__img {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  object-position: left top;
+  object-position: center center;
   display: block;
+  flex-shrink: 0;
   margin-top: auto;
   border-top: 1px solid var(--color-border-light);
 }
@@ -1111,17 +1232,32 @@ button {
   min-height: 0;
 }
 
+.comp-modal__img-wrap {
+  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: min(48vh, calc(90vh - 280px));
+  background: var(--color-bg-muted);
+  border-top: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .comp-modal__img {
   width: 100%;
-  max-height: 56vh;
+  height: 100%;
   object-fit: contain;
-  object-position: left top;
-  background: var(--color-bg-muted);
+  object-position: center center;
   display: block;
-  border-top: 1px solid var(--color-border-light);
 }
 
 .comp-modal__img[src=""] {
+  display: none;
+}
+
+.comp-modal--no-image .comp-modal__img-wrap {
   display: none;
 }
 
@@ -1369,13 +1505,13 @@ button {
   }
 
   .modal__container {
-    width: 95%;
-    max-height: 90vh;
-    padding: var(--space-xl);
+    width: min(920px, 94vw);
+    max-height: min(90vh, 1000px);
+    padding: var(--space-lg) var(--space-md);
   }
 
   .modal__header {
-    padding-right: var(--space-xl);
+    padding-right: 2.75rem;
   }
 
   .modal__section {
