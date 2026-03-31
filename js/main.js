@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectCards = document.querySelectorAll('[data-modal]');
   const modals = document.querySelectorAll('.modal');
 
-  const PROJECT_MAIN_IDS = ['modal-1', 'modal-2', 'modal-3'];
+  /* 메인 프로젝트 카드 노출 순서(01→02→03)와 동일: 리소스 → TMS → 성우 */
+  const PROJECT_MAIN_IDS = ['modal-1', 'modal-3', 'modal-2'];
   const PROJECT_SIDE_IDS = ['modal-side-1', 'modal-side-2'];
 
   function getProjectSequence(modalId) {
