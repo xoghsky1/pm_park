@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* 메인 프로젝트 카드 노출 순서(01→02→03)와 동일: 리소스 → TMS → 성우 */
   // modal-1은 풀스크린 케이스 스터디(단독) — 시퀀스에서 분리
-  const PROJECT_MAIN_IDS = ['modal-2', 'modal-3'];
+  const PROJECT_MAIN_IDS = ['modal-1', 'modal-2', 'modal-3'];
   const PROJECT_SIDE_IDS = ['modal-side-1', 'modal-side-2'];
 
   function getProjectSequence(modalId) {
@@ -233,6 +233,131 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+
+  // Image lightbox
+  const lightbox = document.createElement('div');
+  lightbox.id = 'lightbox';
+  lightbox.innerHTML = '<div id="lightbox-inner"><img id="lightbox-img" alt=""></div><button id="lightbox-close" aria-label="닫기">×</button>';
+  document.body.appendChild(lightbox);
+
+  const lbImg = document.getElementById('lightbox-img');
+  const lbInner = document.getElementById('lightbox-inner');
+
+  let lbScale = 1;
+  let lbTx = 0, lbTy = 0;
+  let lbDragging = false, lbDragStartX = 0, lbDragStartY = 0, lbDragOriginTx = 0, lbDragOriginTy = 0;
+
+  function clampTranslate(tx, ty) {
+    const scaledW = lbImg.offsetWidth * lbScale;
+    const scaledH = lbImg.offsetHeight * lbScale;
+    const maxTx = Math.max(0, (scaledW - window.innerWidth) / 2);
+    const maxTy = Math.max(0, (scaledH - window.innerHeight) / 2);
+    return {
+      x: Math.max(-maxTx, Math.min(maxTx, tx)),
+      y: Math.max(-maxTy, Math.min(maxTy, ty))
+    };
+  }
+
+  function applyTransform() {
+    lbImg.style.transform = `translate(${lbTx}px, ${lbTy}px) scale(${lbScale})`;
+    lbImg.style.transformOrigin = 'center center';
+    lbImg.style.cursor = lbDragging ? 'grabbing' : (lbScale > 1 ? 'grab' : 'default');
+  }
+
+  function resetZoom() {
+    lbScale = 1;
+    lbTx = 0;
+    lbTy = 0;
+    applyTransform();
+  }
+
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    resetZoom();
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+    resetZoom();
+  }
+
+  // Drag to pan
+  lbImg.addEventListener('mousedown', (e) => {
+    if (lbScale <= 1) return;
+    e.preventDefault();
+    lbDragging = true;
+    lbDragStartX = e.clientX;
+    lbDragStartY = e.clientY;
+    lbDragOriginTx = lbTx;
+    lbDragOriginTy = lbTy;
+    applyTransform();
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!lbDragging) return;
+    const raw = clampTranslate(
+      lbDragOriginTx + (e.clientX - lbDragStartX),
+      lbDragOriginTy + (e.clientY - lbDragStartY)
+    );
+    lbTx = raw.x;
+    lbTy = raw.y;
+    applyTransform();
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!lbDragging) return;
+    lbDragging = false;
+    applyTransform();
+  });
+
+  // Ctrl + wheel zoom
+  lightbox.addEventListener('wheel', (e) => {
+    if (!e.ctrlKey) return;
+    e.preventDefault();
+    const delta = e.deltaY < 0 ? 1.15 : 0.85;
+    lbScale = Math.min(Math.max(lbScale * delta, 1), 3);
+    if (lbScale === 1) { lbTx = 0; lbTy = 0; }
+    applyTransform();
+  }, { passive: false });
+
+  // Trackpad pinch
+  let lastPinchDist = null;
+  lightbox.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) lastPinchDist = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+  }, { passive: true });
+
+  lightbox.addEventListener('touchmove', (e) => {
+    if (e.touches.length !== 2 || lastPinchDist === null) return;
+    e.preventDefault();
+    const dist = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+    lbScale = Math.min(Math.max(lbScale * (dist / lastPinchDist), 1), 3);
+    lastPinchDist = dist;
+    applyTransform();
+  }, { passive: false });
+
+  lightbox.addEventListener('touchend', () => { lastPinchDist = null; });
+
+  // Double-click to reset zoom
+  lbImg.addEventListener('dblclick', resetZoom);
+
+  document.querySelectorAll('.modal__media-img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox || e.target === lbInner) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
