@@ -1,54 +1,106 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  const nav = document.getElementById('nav');
-  const sections = document.querySelectorAll('.section, .hero');
-  const navLinks = document.querySelectorAll('.nav__link');
+  // Career duration auto-calculation from 2020.01
+  const CAREER_START = new Date(2020, 0); // 2020년 1월
 
-  function updateNavScroll() {
-    nav.classList.toggle('is-scrolled', window.scrollY > 10);
+  // 연차는 햇수(달력 기준)로 카운트: 입사 연도 = 1년차
+  function calcCareerYears() {
+    return new Date().getFullYear() - CAREER_START.getFullYear() + 1;
   }
+
+  function calcCareerMonths() {
+    const now = new Date();
+    // 시작월과 현재월을 모두 포함해서 카운트 (+1)
+    const total =
+      (now.getFullYear() * 12 + now.getMonth()) -
+      (CAREER_START.getFullYear() * 12 + CAREER_START.getMonth()) + 1;
+    return { years: Math.floor(total / 12), months: total % 12 };
+  }
+
+  function formatCareerDuration() {
+    const { years, months } = calcCareerMonths();
+    return years > 0
+      ? (months > 0 ? `${years}년 ${months}개월` : `${years}년`)
+      : `${months}개월`;
+  }
+
+  const duration = formatCareerDuration();
+  const periodEl = document.getElementById('careerPeriod');
+  if (periodEl) periodEl.textContent = duration;
+
+
+  // Keep the "N년차" in the meta description in sync with the same start date
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.content = metaDesc.content.replace(/\d+년차/, `${calcCareerYears()}년차`);
+  }
+
+
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+
+  if (themeToggle) themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.nav__link');
+  const nav = document.getElementById('nav');
+
+  // Cache section offsets once; refresh on resize
+  let sectionOffsets = [];
+  function cacheSectionOffsets() {
+    const navH = nav ? nav.offsetHeight : 72;
+    sectionOffsets = Array.from(sections).map(s => ({
+      id: s.getAttribute('id'),
+      top: s.offsetTop - navH - 8,
+    }));
+  }
+  cacheSectionOffsets();
+  window.addEventListener('resize', cacheSectionOffsets, { passive: true });
 
   function updateActiveLink() {
     let current = '';
-    sections.forEach(section => {
-      const top = section.offsetTop - 120;
-      if (window.scrollY >= top) {
-        current = section.getAttribute('id');
-      }
-    });
-
+    for (const { id, top } of sectionOffsets) {
+      if (window.scrollY >= top) current = id;
+    }
     navLinks.forEach(link => {
       link.classList.toggle('is-active', link.getAttribute('href') === `#${current}`);
     });
   }
 
+  // Scroll progress (scaleX avoids layout recalc on every frame)
+  const scrollProgress = document.getElementById('scrollProgress');
+  function updateScrollProgress() {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    scrollProgress.style.transform = `scaleX(${docHeight > 0 ? window.scrollY / docHeight : 0})`;
+  }
+
+  let rafPending = false;
   window.addEventListener('scroll', () => {
-    updateNavScroll();
-    updateActiveLink();
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(() => {
+        updateActiveLink();
+        updateScrollProgress();
+        rafPending = false;
+      });
+    }
   }, { passive: true });
 
-  // Mobile menu
-  const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('is-active');
-    navMenu.classList.toggle('is-open');
-  });
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.classList.remove('is-active');
-      navMenu.classList.remove('is-open');
-    });
-  });
 
   // Modal
   const projectCards = document.querySelectorAll('[data-modal]');
   const modals = document.querySelectorAll('.modal');
 
   /* 메인 프로젝트 카드 노출 순서(01→02→03)와 동일: 리소스 → TMS → 성우 */
-  const PROJECT_MAIN_IDS = ['modal-1', 'modal-3', 'modal-2'];
+  // modal-1은 풀스크린 케이스 스터디(단독) — 시퀀스에서 분리
+  const PROJECT_MAIN_IDS = ['modal-2', 'modal-3'];
   const PROJECT_SIDE_IDS = ['modal-side-1', 'modal-side-2'];
 
   function getProjectSequence(modalId) {
@@ -68,19 +120,28 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.disabled = idx >= seq.length - 1;
   }
 
+  let lastFocused = null;
+
   function openModal(id) {
     const modal = document.getElementById(id);
     if (!modal) return;
+    if (document.activeElement && !modal.contains(document.activeElement)) {
+      lastFocused = document.activeElement;
+    }
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
     updateProjectModalNav(modal);
+    // 키보드 사용자가 모달 안에서 시작하도록 포커스 이동
+    requestAnimationFrame(() => modal.querySelector('.modal__close')?.focus());
   }
 
-  function closeModal(modal) {
+  function closeModal(modal, restoreFocus = true) {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
+    // 모달을 연 요소로 포커스 복원 (모달 간 이동 시에는 건너뜀)
+    if (restoreFocus && lastFocused) { lastFocused.focus(); lastFocused = null; }
   }
 
   function navigateProjectModal(fromModal, delta) {
@@ -88,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!seq) return;
     const idx = seq.indexOf(fromModal.id) + delta;
     if (idx < 0 || idx >= seq.length) return;
-    closeModal(fromModal);
+    closeModal(fromModal, false);
     openModal(seq[idx]);
   }
 
@@ -96,6 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', () => {
       openModal(card.getAttribute('data-modal'));
     });
+    if (card.getAttribute('role') === 'button') {
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(card.getAttribute('data-modal'));
+        }
+      });
+    }
   });
 
   modals.forEach(modal => {
@@ -126,84 +195,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-    const compOpen = document.getElementById('compModal')?.classList.contains('is-open');
-    if (compOpen) return;
     const openProject = Array.from(modals).find(m => m.classList.contains('is-open'));
     if (!openProject || !getProjectSequence(openProject.id)) return;
     e.preventDefault();
     navigateProjectModal(openProject, e.key === 'ArrowLeft' ? -1 : 1);
   });
-
-  // Competency Modal
-  const compModal = document.getElementById('compModal');
-  if (compModal) {
-    const compCards = document.querySelectorAll('[data-comp-modal]');
-    const compData = [];
-    compCards.forEach(card => {
-      const img = card.querySelector('.comp-card__img');
-      compData.push({
-        img: img ? img.src : '',
-        alt: img ? img.alt : '',
-        num: card.querySelector('.comp-card__num')?.textContent || '',
-        title: card.querySelector('.comp-card__title')?.textContent || '',
-        desc: card.querySelector('.comp-card__desc')?.textContent || ''
-      });
-    });
-
-    let compIdx = 0;
-    const compImg = compModal.querySelector('.comp-modal__img');
-    const compNum = compModal.querySelector('.comp-modal__num');
-    const compTitle = compModal.querySelector('.comp-modal__title');
-    const compDesc = compModal.querySelector('.comp-modal__desc');
-    const compCounter = compModal.querySelector('.comp-modal__counter');
-    const prevBtn = compModal.querySelector('.comp-modal__nav--prev');
-    const nextBtn = compModal.querySelector('.comp-modal__nav--next');
-
-    function renderComp(idx) {
-      compIdx = idx;
-      const d = compData[idx];
-      compImg.src = d.img;
-      compImg.alt = d.alt;
-      compNum.textContent = d.num;
-      compTitle.textContent = d.title;
-      compDesc.textContent = d.desc;
-      compCounter.textContent = `${idx + 1} / ${compData.length}`;
-      prevBtn.disabled = idx === 0;
-      nextBtn.disabled = idx === compData.length - 1;
-      compModal.classList.toggle('comp-modal--no-image', !d.img);
-    }
-
-    function openCompModal(idx) {
-      renderComp(idx);
-      compModal.classList.add('is-open');
-      compModal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
-    }
-
-    function closeCompModal() {
-      compModal.classList.remove('is-open');
-      compModal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
-    }
-
-    compCards.forEach(card => {
-      card.addEventListener('click', () => {
-        openCompModal(Number(card.getAttribute('data-comp-modal')));
-      });
-    });
-
-    prevBtn.addEventListener('click', () => { if (compIdx > 0) renderComp(compIdx - 1); });
-    nextBtn.addEventListener('click', () => { if (compIdx < compData.length - 1) renderComp(compIdx + 1); });
-    compModal.querySelector('.comp-modal__overlay').addEventListener('click', closeCompModal);
-    compModal.querySelector('.comp-modal__close').addEventListener('click', closeCompModal);
-
-    document.addEventListener('keydown', (e) => {
-      if (!compModal.classList.contains('is-open')) return;
-      if (e.key === 'Escape') closeCompModal();
-      if (e.key === 'ArrowLeft' && compIdx > 0) renderComp(compIdx - 1);
-      if (e.key === 'ArrowRight' && compIdx < compData.length - 1) renderComp(compIdx + 1);
-    });
-  }
 
   // Scroll fade-up
   const fadeObserver = new IntersectionObserver((entries) => {
@@ -217,6 +213,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
 
+  // Skill gauge tooltips
+  document.querySelectorAll('.skill-tag[data-level]').forEach(tag => {
+    const level = tag.dataset.level;
+    const fill = tag.dataset.fill || '100';
+    const tooltip = document.createElement('div');
+    tooltip.className = 'skill-tooltip';
+    tooltip.innerHTML = `
+      <div class="skill-tooltip__label">
+        <span>${tag.textContent.trim()}</span>
+        <span class="skill-tooltip__pct">${level}</span>
+      </div>
+      <div class="skill-tooltip__track"><div class="skill-tooltip__bar"></div></div>
+    `;
+    tag.appendChild(tooltip);
+    const bar = tooltip.querySelector('.skill-tooltip__bar');
+    tag.addEventListener('mouseenter', () => { bar.style.width = fill + '%'; });
+    tag.addEventListener('mouseleave', () => { bar.style.width = '0%'; });
+  });
+
+
+
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -226,13 +243,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Hero scroll indicator
-  const heroScroll = document.getElementById('heroScroll');
-  if (heroScroll) {
-    heroScroll.addEventListener('click', () => {
-      const about = document.getElementById('about');
-      if (about) about.scrollIntoView({ behavior: 'smooth' });
-    });
-  }
 
 });

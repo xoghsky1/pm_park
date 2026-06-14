@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>박태호 | Project Manager 포트폴리오</title>
-  <meta name="description" content="복잡도는 낮추고 효율은 높이는 7년차 PM 박태호의 포트폴리오">
+  <title>박태호 서비스 기획 포트폴리오</title>
+  <meta name="description" content="조직 방향에 발맞춰 사용자의 문제를 푸는 7년차 서비스 기획자 박태호의 포트폴리오">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -14,115 +14,134 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="#hero" class="nav__logo">박태호</a>
-      <button class="nav__toggle" id="navToggle" aria-label="메뉴 열기">
-        <span></span><span></span><span></span>
+      <a href="#about" class="nav__logo">박태호 <span class="nav__logo-en">Park Taeho</span></a>
+      <button class="theme-toggle" id="themeToggle" aria-label="다크모드 전환">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span class="theme-toggle__track">
+          <span class="theme-toggle__thumb"></span>
+        </span>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <ul class="nav__menu" id="navMenu">
-        <li><a href="#about" class="nav__link">소개</a></li>
-        <li><a href="#projects" class="nav__link">프로젝트</a></li>
-        <li><a href="#competencies" class="nav__link">핵심역량</a></li>
-        <li><a href="#contact" class="nav__link">연락처</a></li>
-      </ul>
     </div>
+    <div class="scroll-progress" id="scrollProgress"></div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero__content">
-        <p class="hero__label">Product Manager | Service Designer</p>
-        <h1 class="hero__title">복잡도는 낮추고 효율은 높이는<br>비용 30% 절감을 실현한<br><strong>7년차 PM</strong></h1>
-        <p class="hero__desc">전사 제품 조직의 실행력을 높이고 업무 효율을 개선하는<br>서비스를 기획/고도화해온 PM 입니다.</p>
-        <div class="hero__tags">
-          <span class="tag">운영 체계 설계</span>
-          <span class="tag">Cross-Functional 조율</span>
-          <span class="tag">워크플로우 표준화</span>
-        </div>
-        <div class="hero__cta">
-          <a href="#projects" class="btn btn--primary">프로젝트 보기</a>
-          <a href="#contact" class="btn btn--outline">연락하기</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero__scroll" id="heroScroll">
-      <span>Scroll</span>
-      <svg class="hero__scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-  </section>
+  <!-- TOC -->
+  <nav class="toc" id="toc" aria-label="페이지 목차">
+    <ul class="toc__list">
+      <li class="toc__item"><a href="#about" class="toc__link nav__link">소개</a></li>
+      <li class="toc__item"><a href="#skills" class="toc__link nav__link">스킬</a></li>
+      <li class="toc__item"><a href="#projects" class="toc__link nav__link">프로젝트</a></li>
+      <li class="toc__item"><a href="#certification" class="toc__link nav__link">자격증</a></li>
+    </ul>
+  </nav>
 
   <!-- About -->
   <section class="section about" id="about">
     <div class="container">
-      <h2 class="section__title fade-up">소개</h2>
-
       <div class="about__header fade-up">
-        <div class="about__intro">
-          <h3 class="about__name">박태호</h3>
-          <span class="about__role">PM | 서비스 기획자</span>
-          <span class="about__exp">경력 6년 3개월</span>
+        <div class="about__header-top">
+          <h1 class="about__name about__name--center">박태호 <span class="about__name-en">Park Taeho</span></h1>
         </div>
-        <p class="about__philosophy">복잡한 조직의 문제를 단순한 구조로 풀어내고, 데이터와 사용자 관점에 기반한 의사결정으로 조직 전체의 업무 효율을 높이는 PM을 지향합니다.</p>
-      </div>
-
-      <!-- Career -->
-      <div class="about__block fade-up">
-        <p class="about__block-label">경력</p>
-        <div class="career-card__header">
-          <h4 class="career-card__company">NC</h4>
-          <span class="career-card__period">2020.01 — 현재 | 6년 3개월</span>
-        </div>
-        <p class="career-card__dept">AX지원실 | 서비스기획</p>
-        <ul class="career-card__list">
-          <li>전사 4,000명 규모 내부 플랫폼 3건을 런칭하고 운영 프로세스를 표준화</li>
-          <li>부서별로 다른 요구사항과 업무 방식을 기술 스펙으로 정리해 전사 공통 워크플로우로 운영</li>
-          <li>AI 자동화 시나리오를 기획해 제작 비용 30% 절감, 중복 업무 30% 감소에 기여</li>
-        </ul>
-      </div>
-
-      <!-- Education & Cert -->
-      <div class="about__block fade-up">
-        <p class="about__block-label">학력 | 자격</p>
-        <div class="about__sub">
-          <div>
-            <p class="about__sub-main">Indiana University Bloomington</p>
-            <p class="about__sub-detail">컴퓨터정보학과 (부전공: 경영학) | GPA 3.59 / 4.0</p>
-            <p class="about__sub-period">2014.08 — 2019.05</p>
+        <div class="about__header-bottom">
+          <div class="about__header-left">
+            <div class="about__photo">
+              <img src="images/profile.jpg" alt="박태호 프로필 사진" onerror="this.style.display='none'">
+            </div>
+            <a href="mailto:taehopark94@gmail.com" class="about__email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              taehopark94@gmail.com
+            </a>
+            <a href="박태호_PM_Portfolio.pdf" class="about__resume" download>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              이력서 PDF
+            </a>
           </div>
-          <div>
-            <p class="about__sub-main">Prince2 Foundation</p>
-            <p class="about__sub-detail">APMG | 2022.07 취득</p>
+          <div class="about__header-right">
+            <p class="about__philosophy"><strong>조직의 방향에 발맞춰 팀과 함께 일하는 서비스 기획자 박태호</strong>입니다.<br>새로운 기술 트렌드에 관심이 많아 직접 써보는 것을 즐깁니다.<br>사내 사용자의 문제를 풀어왔던 경험으로, 이제는 더 많은 사용자에게 닿는 서비스에서 제 기획을 증명해보고 싶습니다.</p>
+            <div class="about__edu">
+              <svg class="about__edu-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <div>
+                <p class="about__sub-main">Indiana University Bloomington</p>
+                <p class="about__sub-detail">컴퓨터정보학과 · 부전공 경영학</p>
+                <p class="about__sub-period">2014.08 — 2019.05 · GPA 4.03 / 4.5</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Skills -->
-      <div class="about__block fade-up">
-        <p class="about__block-label">스킬</p>
-        <div class="skill-group">
-          <p class="skill-group__label">도구</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Confluence</span>
-            <span class="skill-tag">Jira</span>
-            <span class="skill-tag">Github</span>
-            <span class="skill-tag">ChatGPT</span>
-            <span class="skill-tag">Gemini</span>
-            <span class="skill-tag">Claude</span>
-            <span class="skill-tag">Cursor</span>
-            <span class="skill-tag">Stitch</span>
-            <span class="skill-tag">Antigravity</span>
-            <span class="skill-tag">NotebookLM</span>
+      <div class="about__blocks">
+
+          <!-- Career -->
+          <div class="about__block fade-up">
+            <p class="about__block-label">Career</p>
+            <div class="career-card__header">
+              <h4 class="career-card__company"><img src="images/nc.png" alt="NC" class="career-card__logo"></h4>
+              <span class="career-card__period">2020.01 — 현재 | <span id="careerPeriod"></span></span>
+            </div>
+            <p class="career-card__dept">AX지원실 | 서비스 기획</p>
+            <ul class="career-card__list">
+              <li>사내 개발 과정의 문제를 정의하고 병목을 최소화하기 위한 개선 전략 수립</li>
+              <li>Cross-Functional 팀에서 해결 방안을 문서와 목업으로 구체화하고 마일스톤 일정과 우선순위 합의</li>
+              <li>사용자 데이터를 분석하여 기능 우선순위 등 팀 내 의사결정 지원</li>
+            </ul>
           </div>
-        </div>
-        <div class="skill-group">
-          <p class="skill-group__label">데이터 분석</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Google Analytics 4</span>
-            <span class="skill-tag">Google Tag Manager</span>
-            <span class="skill-tag">Kibana</span>
+
+          <!-- Skills -->
+          <div class="about__block fade-up" id="skills">
+            <div class="about__block-header">
+              <p class="about__block-label">Skills</p>
+              <span class="skill-hint">태그에 마우스를 올리면 숙련도를 확인할 수 있어요</span>
+            </div>
+            <div class="skill-group">
+              <p class="skill-group__label">Product</p>
+              <div class="skill-tags">
+                <span class="skill-tag" data-level="상" data-fill="100">
+                  <span class="skill-tag__icon"><img src="images/icons/figma.svg" alt="Figma" loading="lazy" onerror="this.style.display='none'"></span>Figma
+                </span>
+                <span class="skill-tag" data-level="중" data-fill="60">
+                  <span class="skill-tag__icon"><img src="images/icons/github.svg" alt="GitHub" loading="lazy" onerror="this.style.display='none'"></span>Github
+                </span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <p class="skill-group__label">Data</p>
+              <div class="skill-tags">
+                <span class="skill-tag" data-level="상" data-fill="100">
+                  <span class="skill-tag__icon"><img src="images/icons/ga4.svg" alt="GA4" loading="lazy" onerror="this.style.display='none'"></span>GA4
+                </span>
+                <span class="skill-tag" data-level="상" data-fill="100">
+                  <span class="skill-tag__icon"><img src="images/icons/gtm.svg" alt="GTM" loading="lazy" onerror="this.style.display='none'"></span>GTM
+                </span>
+                <span class="skill-tag" data-level="중" data-fill="60">
+                  <span class="skill-tag__icon"><img src="images/icons/amplitude.svg" alt="Amplitude" loading="lazy" onerror="this.style.display='none'"></span>Amplitude
+                </span>
+                <span class="skill-tag" data-level="중" data-fill="60">
+                  <span class="skill-tag__icon"><img src="images/icons/kibana.svg" alt="Kibana" loading="lazy" onerror="this.style.display='none'"></span>Kibana
+                </span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <p class="skill-group__label">Communication</p>
+              <div class="skill-tags">
+                <span class="skill-tag" data-level="상" data-fill="100">
+                  <span class="skill-tag__icon"><img src="images/icons/confluence.svg" alt="Confluence" loading="lazy" onerror="this.style.display='none'"></span>Confluence
+                </span>
+                <span class="skill-tag" data-level="상" data-fill="100">
+                  <span class="skill-tag__icon"><img src="images/icons/jira.svg" alt="Jira" loading="lazy" onerror="this.style.display='none'"></span>Jira
+                </span>
+                <span class="skill-tag" data-level="중" data-fill="60">
+                  <span class="skill-tag__icon"><img src="images/icons/notion.svg" alt="Notion" loading="lazy" onerror="this.style.display='none'"></span>Notion
+                </span>
+              </div>
+            </div>
+
+
           </div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -130,72 +149,36 @@
   <!-- Projects -->
   <section class="section projects" id="projects">
     <div class="container">
-      <h2 class="section__title fade-up">프로젝트</h2>
+      <h2 class="section__title fade-up">Projects</h2>
       <div class="projects__grid">
 
-        <article class="project-card fade-up" data-modal="modal-1">
-          <div class="project-card__top">
-            <div class="project-card__num">01</div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">사내 디지털 리소스 통합 관리 플랫폼</h3>
-              <div class="project-card__meta">
-                <span class="project-card__period">2025.04 — 현재 | 1년 </span>
-                <span class="project-card__role">서비스 기획</span>
-              </div>
-              <div class="project-card__scale">
-                <span>팀 6명 (기획 1 / FE 2 / BE 2 / 서버 1 / 디자인 1)</span>
-                <span>대상 약 700명</span>
-                <span>협업 2개 조직</span>
-              </div>
-              <div class="project-card__footer">
-                <p class="project-card__result">메타데이터 표준화 및 접근 제어 정책 수립을 통한 리소스 중복 제작 및 구매율 감축</p>
-                <button class="project-card__btn" data-modal="modal-1">자세히 보기 →</button>
-              </div>
-            </div>
+        <article class="project-card project-card--cover fade-up" data-modal="modal-1" role="button" tabindex="0" aria-label="ONAIR Asset 자세히 보기">
+          <div class="project-card__cover">
+            <img src="images/project-onair.png" alt="ONAIR Asset 소개 이미지" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="project-card__info">
+            <h3 class="project-card__title">ONAIR Asset <span class="project-card__tag project-card__tag--beta">베타</span></h3>
+            <p class="project-card__desc">디지털 자산 통합 관리 플랫폼</p>
           </div>
         </article>
 
-        <article class="project-card fade-up" data-modal="modal-3">
-          <div class="project-card__top">
-            <div class="project-card__num">02</div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">전사 통합 용어 관리 플랫폼 (TMS)</h3>
-              <div class="project-card__meta">
-                <span class="project-card__period">2024.03 — 2024.07 | 5개월</span>
-                <span class="project-card__role">서비스 기획</span>
-              </div>
-              <div class="project-card__scale">
-                <span>팀 4명 (기획 1 / FE 1 / BE 1 / 디자인 1)</span>
-                <span>대상 전사 4,000명</span>
-                <span>협업 2개 조직</span>
-              </div>
-              <div class="project-card__footer">
-                <p class="project-card__result">중복 번역 요청 30% 감소 및 서비스 용어 일관성 확보</p>
-                <button class="project-card__btn" data-modal="modal-3">자세히 보기 →</button>
-              </div>
-            </div>
+        <article class="project-card project-card--cover fade-up" data-modal="modal-2" role="button" tabindex="0" aria-label="BRIDGE voice 자세히 보기">
+          <div class="project-card__cover">
+            <img src="images/project-bridge-voice.png" alt="BRIDGE voice 소개 이미지" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="project-card__info">
+            <h3 class="project-card__title">BRIDGE voice <span class="project-card__tag project-card__tag--new">출시</span></h3>
+            <p class="project-card__desc">성우 녹음 제작 관리 + AI 공정 자동화</p>
           </div>
         </article>
 
-        <article class="project-card fade-up" data-modal="modal-2">
-          <div class="project-card__top">
-            <div class="project-card__num">03</div>
-            <div class="project-card__body">
-              <h3 class="project-card__title">성우 녹음 플랫폼</h3>
-              <div class="project-card__meta">
-                <span class="project-card__period">2021.04 — 2024.03 | 3년</span>
-                <span class="project-card__role">서비스 기획</span>
-              </div>
-              <div class="project-card__scale">
-                <span>팀 3명 (기획 1 / FS 1 / 디자인 1)</span>
-                <span>대상 약 500명</span>
-                <span>협업 4개 조직</span>
-              </div>
-              <div class="project-card__footer">
-                <p class="project-card__result">AI 연계 자동화로 제작 비용 30% 이상 절감, 제작 리드타임 40% 단축</p>
-                <button class="project-card__btn" data-modal="modal-2">자세히 보기 →</button>
-              </div>
-            </div>
+        <article class="project-card project-card--cover fade-up" data-modal="modal-3" role="button" tabindex="0" aria-label="BRIDGE finder 자세히 보기">
+          <div class="project-card__cover">
+            <img src="images/project-bridge-finder.png" alt="BRIDGE finder 소개 이미지" loading="lazy" style="object-fit:contain;background:#f0faf4;" onerror="this.style.display='none'">
+          </div>
+          <div class="project-card__info">
+            <h3 class="project-card__title">BRIDGE finder <span class="project-card__tag project-card__tag--new">출시</span></h3>
+            <p class="project-card__desc">용어 관리 표준 플랫폼</p>
           </div>
         </article>
 
@@ -203,54 +186,38 @@
 
       <!-- Side Projects -->
       <div class="projects__side fade-up">
-        <p class="projects__side-label">사이드 프로젝트</p>
+        <p class="projects__side-label">Side Projects</p>
         <div class="projects__grid projects__grid--side">
 
-          <article class="project-card project-card--side fade-up" data-modal="modal-side-1">
-            <div class="project-card__top">
-              <div class="project-card__num project-card__num--side">S1</div>
-              <div class="project-card__body">
-                <h3 class="project-card__title">기획서 통합 챗봇<span class="project-card__subtitle">Figma 기획서 기반 LLM 검색 도구</span></h3>
-                <div class="project-card__meta">
-                  <span class="project-card__period">2026</span>
-                  <span class="project-card__role">기획 + 개발 (챗봇) / FE 2명 (사이트 적용)</span>
-                </div>
-                <div class="project-card__scale">
-                  <span>Figma API 기능명세 자동 추출</span>
-                  <span>OpenAI 기반 자연어 질의</span>
-                  <span>User / Back Office 사이트 적용</span>
-                  <span>Python / HTML / Cursor</span>
-                </div>
-                <div class="project-card__footer">
-                  <p class="project-card__result">Figma 기반 기능명세를 자동 수집하여 실무자용 스펙 검색과 사용자용 안내 챗봇으로 동시 활용</p>
-                  <button class="project-card__btn" data-modal="modal-side-1">자세히 보기 →</button>
-                </div>
-              </div>
+          <article class="project-card project-card--cover fade-up" data-modal="modal-side-1" role="button" tabindex="0" aria-label="기획서 통합 챗봇 자세히 보기">
+            <div class="project-card__cover">
+              <img src="images/side-chatbot-cover.svg" alt="기획서 통합 챗봇 화면" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="project-card__info">
+              <h3 class="project-card__title">기획서 통합 챗봇</h3>
+              <p class="project-card__desc">Figma 기획서 기반 LLM 검색 도구</p>
             </div>
           </article>
 
-          <article class="project-card project-card--side fade-up" data-modal="modal-side-2">
-            <div class="project-card__top">
-              <div class="project-card__num project-card__num--side">S2</div>
-              <div class="project-card__body">
-                <h3 class="project-card__title">AutoQA<span class="project-card__subtitle">자동화 QA 및 이슈 트래킹 도구</span></h3>
-                <div class="project-card__meta">
-                  <span class="project-card__period">2026</span>
-                  <span class="project-card__role">1인 개발</span>
-                </div>
-                <div class="project-card__scale">
-                  <span>QA 자동화</span>
-                  <span>테스트 실패 시 일감 자동 생성</span>
-                  <span>React / Node.js / Playwright / Antigravity / Cursor</span>
-                </div>
-                <div class="project-card__footer">
-                  <p class="project-card__result">반복 수동 QA를 자동화하고, 테스트 실패 시 버그 일감까지 자동 생성하여 운영 공수 제거</p>
-                  <button class="project-card__btn" data-modal="modal-side-2">자세히 보기 →</button>
-                </div>
-              </div>
+          <article class="project-card project-card--cover fade-up" data-modal="modal-side-2" role="button" tabindex="0" aria-label="AutoQA 자세히 보기">
+            <div class="project-card__cover">
+              <img src="images/side-autoqa-cover.svg" alt="AutoQA 화면" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="project-card__info">
+              <h3 class="project-card__title">AutoQA</h3>
+              <p class="project-card__desc">자동화 QA 및 이슈 트래킹 도구</p>
             </div>
           </article>
 
+        </div>
+      </div>
+
+      <!-- Certification -->
+      <div class="section__cert fade-up" id="certification">
+        <h2 class="section__title">Certification</h2>
+        <div class="cert-card">
+          <p class="about__sub-main">PRINCE2 Foundation</p>
+          <p class="about__sub-detail">APMG | 2022.07 취득</p>
         </div>
       </div>
 
@@ -258,7 +225,7 @@
   </section>
 
   <!-- Modal Side-1: 기획서 통합 챗봇 -->
-  <div class="modal" id="modal-side-1" aria-hidden="true">
+  <div class="modal modal--full" id="modal-side-1" aria-hidden="true">
     <div class="modal__overlay"></div>
     <button type="button" class="modal__edge-nav modal__edge-nav--prev" aria-label="이전 프로젝트">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
@@ -268,77 +235,67 @@
     </button>
     <div class="modal__container">
       <button class="modal__close" aria-label="닫기">&times;</button>
-      <div class="modal__header">
-        <span class="modal__period">2026 | 사이드 프로젝트</span>
-        <h3 class="modal__title">기획서 통합 챗봇<span class="modal__subtitle">Figma 기획서 기반 LLM 검색 도구</span></h3>
-        <div class="modal__scale">
-          <span>Figma API 기능명세 자동 추출</span>
-          <span>OpenAI 기반 자연어 질의</span>
-          <span>User / Back Office 사이트 적용</span>
-          <span>기획 + 개발 (챗봇) / FE 2명 (사이트 적용)</span>
-          <span>Python / HTML / Cursor</span>
+
+      <header class="case__hero">
+        <p class="case__eyebrow">기획서 통합 챗봇 · 사이드 프로젝트</p>
+        <h3 class="case__title">Figma 기획서 속 정보를 <span class="hl">챗봇으로 바로</span> 검색하게 만들었어요</h3>
+        <div class="case__meta">
+          <div class="case__meta-item"><span class="case__meta-label">기간</span><span class="case__meta-value">2026</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">역할</span><span class="case__meta-value">기획 + 개발 (챗봇)</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">팀</span><span class="case__meta-value">기획자 1 + FE 2 (사이트 적용)</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">스택</span><span class="case__meta-value">Python · HTML · Cursor</span></div>
         </div>
-      </div>
-      <div class="modal__media" aria-label="프로젝트 화면">
-        <div class="modal__media-wrap">
-          <img class="modal__media-img" src="images/side-chatbot.png" alt="기획서 통합 챗봇 실행 화면" width="1920" height="1080" loading="lazy">
-        </div>
-      </div>
-      <div class="modal__body">
-        <div class="modal__section">
-          <span class="modal__section-num">01</span>
-          <div class="modal__section-content">
-            <h4>문제 정의</h4>
-            <ul>
-              <li>실무자: 기능명세서가 Figma 내 수십 개 프레임에 분산되어 있어, 스펙 확인 시 매번 Figma를 탐색해야 했음</li>
-              <li>사용자: 궁금한 기능이 있을 때 매뉴얼을 직접 찾아보거나, 없으면 문의 후 답변을 기다려야 했음</li>
-              <li>기획자: 기획서 완료 후 매뉴얼을 별도 작성해야 했고, 기획서 변경 시 기획서 수정 + 매뉴얼 수정의 이중 작업이 반복</li>
-            </ul>
+      </header>
+
+      <div class="case__body">
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">01</span><h4 class="case__section-title">문제 정의</h4></div>
+          <ul class="case__list">
+            <li><strong>실무자</strong> — 기능명세서가 Figma 내 수십 개 프레임에 분산되어 스펙 확인 시 매번 탐색 필요</li>
+            <li><strong>사용자</strong> — 궁금한 기능이 있을 때 매뉴얼을 직접 찾거나 문의 후 대기 필요</li>
+            <li><strong>기획자</strong> — 기획서 변경 시 기획서 수정 + 매뉴얼 수정 이중 작업 반복</li>
+          </ul>
+          <div class="modal__media" style="margin-bottom:0;">
+            <div class="modal__media-wrap">
+              <img class="modal__media-img" src="images/side-chatbot.png" alt="기획서 통합 챗봇 실행 화면" width="1920" height="1080" loading="lazy">
+            </div>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">02</span>
-          <div class="modal__section-content">
-            <h4>목표</h4>
-            <p>Figma에 흩어진 기능명세를 자동으로 수집하고, 실무자는 스펙 검색용으로, 사용자는 기능 안내 챗봇으로 동시에 활용할 수 있는 환경을 만든다.</p>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">02</span><h4 class="case__section-title">해결 방법</h4></div>
+          <ul class="case__list">
+            <li><strong>자동 추출</strong> — Figma REST API로 기능명세서 프레임의 텍스트 노드를 자동 추출하고 소개·기능 상세·매뉴얼 구간으로 구조화</li>
+            <li><strong>LLM 검색</strong> — 기능명 검색 시 매칭 스펙을 즉시 표시하고, 매칭되지 않는 질문은 OpenAI API로 전체 컨텍스트 기반 응답 생성</li>
+            <li><strong>경량 배포</strong> — 단일 HTML 파일로 챗봇 UI를 구성해 별도 서버 없이 브라우저에서 바로 실행 가능</li>
+            <li><strong>현장 적용</strong> — FE 개발자 2명과 협업해 User 사이트와 Back Office 사이트에 각각 챗봇 적용</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">03</span><h4 class="case__section-title">성과</h4></div>
+          <ul class="case__list">
+            <li>실무자: 기능명세 탐색 시간을 Figma 프레임 탐색 대비 단축</li>
+            <li>사용자: 서비스 기능에 대한 자연어 질문에 매뉴얼 숙지 없이 즉시 안내 가능</li>
+            <li>추출 스크립트 재실행만으로 최신 명세 반영 — 별도 매뉴얼 편집 공수 단축</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="insight">
+            <p class="insight__label">Insight</p>
+            <p class="insight__title">문서가 많아질수록 찾는 비용이 더 커진다</p>
+            <p>문서가 많아질수록 작성 비용보다 찾는 비용이 더 커집니다. 이 프로젝트를 통해 하나의 명세 데이터를 실무자 검색과 사용자 안내에 함께 활용할 수 있다는 점을 확인했습니다.</p>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">03</span>
-          <div class="modal__section-content">
-            <h4>해결 방법</h4>
-            <ul>
-              <li>Figma REST API로 기능명세서 프레임의 텍스트 노드를 자동 추출하고, 소개/기능 상세/매뉴얼 구간으로 구조화</li>
-              <li>기능명 검색 시 매칭되는 스펙을 즉시 표시하고, 매칭되지 않는 질문은 OpenAI API로 전체 컨텍스트 기반 응답 생성</li>
-              <li>단일 HTML 파일로 챗봇 UI를 구성하여 별도 서버 없이 브라우저에서 바로 실행 가능</li>
-              <li>FE 개발자 2명과 협업하여 User 사이트와 Back Office 사이트에 각각 챗봇을 적용</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">04</span>
-          <div class="modal__section-content">
-            <h4>결과</h4>
-            <ul>
-              <li>실무자: 기능명세 탐색 시간을 Figma 프레임 탐색 대비 단축</li>
-              <li>사용자: 서비스 기능에 대한 자연어 질문에 매뉴얼 숙지 없이 즉시 안내 가능</li>
-              <li>추출 스크립트 재실행만으로 최신 명세 반영 — 별도 매뉴얼 편집 공수 단축</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">05</span>
-          <div class="modal__section-content">
-            <h4>인사이트</h4>
-            <p>문서가 많아질수록 작성 비용보다 찾는 비용이 더 커진다. 이 프로젝트를 통해 하나의 명세 데이터를 실무자 검색과 사용자 안내에 함께 활용할 수 있다는 점을 확인했다.</p>
-          </div>
-        </div>
+        </section>
+
       </div>
     </div>
   </div>
 
   <!-- Modal Side-2: AutoQA -->
-  <div class="modal" id="modal-side-2" aria-hidden="true">
+  <div class="modal modal--full" id="modal-side-2" aria-hidden="true">
     <div class="modal__overlay"></div>
     <button type="button" class="modal__edge-nav modal__edge-nav--prev" aria-label="이전 프로젝트">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
@@ -348,162 +305,130 @@
     </button>
     <div class="modal__container">
       <button class="modal__close" aria-label="닫기">&times;</button>
-      <div class="modal__header">
-        <span class="modal__period">2026 | 사이드 프로젝트</span>
-        <h3 class="modal__title">AutoQA<span class="modal__subtitle">자동화 QA 및 이슈 트래킹 도구</span></h3>
-        <div class="modal__scale">
-          <span>QA 자동화</span>
-          <span>테스트 실패 시 일감 자동 생성</span>
-          <span>React / Node.js / Playwright / Antigravity / Cursor</span>
+
+      <header class="case__hero">
+        <p class="case__eyebrow">AutoQA · 사이드 프로젝트</p>
+        <h3 class="case__title">배포마다 반복되던 <span class="hl">수동 검증</span>을 자동화로 대체했어요</h3>
+        <div class="case__meta">
+          <div class="case__meta-item"><span class="case__meta-label">기간</span><span class="case__meta-value">2026</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">역할</span><span class="case__meta-value">기획 + 개발</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">팀</span><span class="case__meta-value">단독</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">스택</span><span class="case__meta-value">React · Node.js · Playwright · Cursor</span></div>
         </div>
-      </div>
-      <div class="modal__media modal__media--multi" aria-label="프로젝트 화면">
-        <div class="modal__media-wrap">
-          <img class="modal__media-img" src="images/side-autoqa-1.png" alt="AutoQA 테스트 실행 및 결과 화면" width="1920" height="1080" loading="lazy">
-        </div>
-        <div class="modal__media-wrap">
-          <img class="modal__media-img" src="images/side-autoqa-2.png" alt="AutoQA 이슈 연동 또는 대시보드 화면" width="1920" height="1080" loading="lazy">
-        </div>
-      </div>
-      <div class="modal__body">
-        <div class="modal__section">
-          <span class="modal__section-num">01</span>
-          <div class="modal__section-content">
-            <h4>문제 정의</h4>
-            <p>매 배포마다 핵심 기능(로그인, 검색, 메뉴 접속 등)을 수동으로 확인해야 하는 반복 작업이 발생했다. 테스트 실패 시 버그 일감 등록까지 별도 공수가 필요해 실제 대응보다 보고 과정에 더 많은 시간이 소요되고 있었다.</p>
+      </header>
+
+      <div class="case__body">
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">01</span><h4 class="case__section-title">문제 정의</h4></div>
+          <p class="case__lead">매 배포마다 핵심 기능(로그인, 검색, 메뉴 접속 등) 수동 확인 반복. 테스트 실패 시 버그 일감 등록까지 별도 공수 필요 — 실제 대응보다 보고 과정에 더 많은 시간 소요.</p>
+          <div class="modal__media modal__media--multi" style="margin-bottom:0;" aria-label="프로젝트 화면">
+            <div class="modal__media-wrap">
+              <img class="modal__media-img" src="images/side-autoqa-1.png" alt="AutoQA 테스트 실행 및 결과 화면" width="1920" height="1080" loading="lazy">
+            </div>
+            <div class="modal__media-wrap">
+              <img class="modal__media-img" src="images/side-autoqa-2.png" alt="AutoQA 이슈 연동 또는 대시보드 화면" width="1920" height="1080" loading="lazy">
+            </div>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">02</span>
-          <div class="modal__section-content">
-            <h4>목표</h4>
-            <p>핵심 E2E 시나리오를 자동화하고, 실패 발생 즉시 이슈 트래킹까지 자동 연결하여 수동 운영 공수를 없앤다.</p>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">02</span><h4 class="case__section-title">해결 방법</h4></div>
+          <ul class="case__list">
+            <li><strong>E2E 자동화</strong> — 로그인, 로그아웃, 검색, 메뉴 접속, 백오피스 로그인 등 핵심 시나리오를 Playwright 기반으로 자동화</li>
+            <li><strong>자동 일감 생성</strong> — 테스트 실패 시 사내 일감 관리 도구에 버그 일감 자동 생성 (제목, 재현 경로, 스크린샷 포함)</li>
+            <li><strong>다환경 검증</strong> — Dev / Stage / Live 환경을 순차 검증하는 전체 플로우 설계</li>
+            <li><strong>브라우저 UI</strong> — React / Node.js / TypeScript 풀스택으로 구현해 브라우저에서 테스트 실행 및 결과 확인 가능</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">03</span><h4 class="case__section-title">성과</h4></div>
+          <ul class="case__list">
+            <li>반복 운영 체크 공수 <strong>80% 이상 절감</strong></li>
+            <li>테스트 실패부터 버그 일감 등록까지 흐름 자동화</li>
+            <li>Dev / Stage / Live 3개 환경 동시 검증 체계 구축</li>
+            <li>특정 조건의 미세 오류 탐지는 수동 확인 필요 — AI 보조 활용 중</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="insight">
+            <p class="insight__label">Insight</p>
+            <p class="insight__title">자동화는 반복을 줄이지만, 판단은 사람의 몫</p>
+            <p>반복 작업은 도구로 줄일 수 있지만, 예외 판단까지 완전히 대체하기는 어렵습니다. 그래서 핵심 시나리오는 자동화하고, 미세 오류나 해석이 필요한 케이스는 사람이 검토하는 구조로 설계했습니다.</p>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">03</span>
-          <div class="modal__section-content">
-            <h4>해결 방법</h4>
-            <ul>
-              <li>로그인, 로그아웃, 검색, 메뉴 접속, 백오피스 로그인 등 핵심 시나리오를 Playwright 기반 E2E 테스트로 자동화</li>
-              <li>테스트 실패 시 사내 일감 관리 도구에 버그 일감을 자동 생성 — 제목, 재현 경로, 스크린샷까지 포함</li>
-              <li>Dev / Stage / Live 환경을 순차 검증하는 전체 환경 테스트 플로우 설계</li>
-              <li>React / Node.js / TypeScript 풀스택으로 구현하여 브라우저 UI에서 테스트 실행 및 결과 확인 가능</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">04</span>
-          <div class="modal__section-content">
-            <h4>결과</h4>
-            <ul>
-              <li>접속, 업로드 장애 확인 등 반복 운영 체크 공수를 80% 이상 절감</li>
-              <li>테스트 실패부터 버그 일감 등록까지의 흐름을 자동화</li>
-              <li>Dev / Stage / Live 3개 환경 동시 검증 체계 구축</li>
-              <li>특정 조건에서 발생하는 미세 오류 탐지는 여전히 수동 확인이 필요하며, AI를 보조 수단으로 활용 중</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">05</span>
-          <div class="modal__section-content">
-            <h4>인사이트</h4>
-            <p>반복 작업은 도구로 줄일 수 있지만, 예외 판단까지 완전히 대체하기는 어렵다. 그래서 핵심 시나리오는 자동화하고, 미세 오류나 해석이 필요한 케이스는 사람이 검토하는 구조로 설계했다.</p>
-          </div>
-        </div>
+        </section>
+
       </div>
     </div>
   </div>
 
-  <!-- Modal 1 -->
-  <div class="modal" id="modal-1" aria-hidden="true">
+  <!-- Modal 1 (Case Study, full-screen) -->
+  <div class="modal modal--full" id="modal-1" aria-hidden="true">
     <div class="modal__overlay"></div>
-    <button type="button" class="modal__edge-nav modal__edge-nav--prev" aria-label="이전 프로젝트">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-    </button>
-    <button type="button" class="modal__edge-nav modal__edge-nav--next" aria-label="다음 프로젝트">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg>
-    </button>
     <div class="modal__container">
       <button class="modal__close" aria-label="닫기">&times;</button>
-      <div class="modal__header">
-        <span class="modal__period">2025.04 — 2025.11 | 8개월</span>
-        <h3 class="modal__title">사내 디지털 리소스 통합 관리 플랫폼</h3>
-        <div class="modal__scale">
-          <span>팀 6명 (기획 1 / FE 2 / BE 2 / 서버 1 / 디자인 1)</span>
-          <span>대상 약 700명</span>
-          <span>협업 2개 조직</span>
+
+      <header class="case__hero">
+        <p class="case__eyebrow">ONAIR Asset · 사내 프로젝트</p>
+        <h3 class="case__title">흩어진 디지털 자산을 <span class="hl">하나의 플랫폼</span>으로 모았어요</h3>
+        <div class="case__meta">
+          <div class="case__meta-item"><span class="case__meta-label">기간</span><span class="case__meta-value">2025.04 — 현재 · 진행중</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">역할</span><span class="case__meta-value">서비스 기획 (PM)</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">팀</span><span class="case__meta-value">6명 · 기획1 FE2 BE2 서버1 디자인1</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">규모</span><span class="case__meta-value">전 사원 대상</span></div>
         </div>
-      </div>
-      <div class="modal__body">
-        <div class="modal__section">
-          <span class="modal__section-num">01</span>
-          <div class="modal__section-content">
-            <h4>문제 정의</h4>
-            <ul>
-              <li>사내 디지털 리소스(이미지, 3D 에셋 등)가 조직별로 파편화되어 관리됨</li>
-              <li>접근 권한 체계 부재로 인한 리소스 중복 구매 / 제작 및 보안 리스크 반복 발생</li>
-            </ul>
+      </header>
+
+      <div class="case__body">
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">01</span><h4 class="case__section-title">문제 정의</h4></div>
+          <p class="case__lead">조직마다 분산된 자산 관리로 중복 구매·제작 반복. 접근 권한 체계 부재로 수령 이력 추적 불가 — 보안 리스크 누적. 사내 6개 조직 대상 PoC 인터뷰 15건 직접 수행해 문제 정의.</p>
+          <div class="modal__media" style="margin-bottom:0;">
+            <div class="modal__media-wrap modal__media-wrap--portrait">
+              <img class="modal__media-img" src="images/onair-deliverables.png" alt="ONAIR Asset AI 기반 기획 산출물 — 프로토타입·기능명세·유저플로우 통합 적재" width="1273" height="2048" loading="lazy" onerror="this.closest('.modal__media').style.display='none'">
+            </div>
+            <p class="modal__media-caption">AI 기반 기획 산출물 — 프로토타입·기능명세·유저플로우 이벤트 수집 목록을 통합 적재 (산출물 이미지는 사내 자료로 블러 처리)</p>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">02</span>
-          <div class="modal__section-content">
-            <h4>목표</h4>
-            <ul>
-              <li>전사 디지털 리소스를 단일 플랫폼에서 통합 관리</li>
-              <li>리소스 메타데이터 표준화 및 접근 제어 정책 수립을 통한 중복 지출 방지 및 운영 효율 확보</li>
-            </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">02</span><h4 class="case__section-title">역할</h4></div>
+          <ul class="case__list">
+            <li><strong>문제 정의</strong> — 사내 6개 조직 대상 PoC 인터뷰 15건을 직접 수행해 디지털 자산 파편화 문제를 정의하고 개선 방향을 도출</li>
+            <li><strong>플랫폼 기획</strong> — 구매·내부 제작 자산을 통합 관리하는 사용자 화면과 백오피스를 기획</li>
+            <li><strong>프로젝트 관리</strong> — 애자일 스크럼 기반으로 로드맵에 따라 마일스톤별 스펙을 선별하고 우선순위를 협의</li>
+            <li><strong>온보딩</strong> — 온보딩 자료와 운영 가이드를 제작해 사용자 진입장벽을 낮춤</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">03</span><h4 class="case__section-title">성과</h4></div>
+          <ul class="case__list">
+            <li>PoC 출시 후 3개월 Beta 테스트에서 <strong>활성 사용자 약 120% 증가</strong></li>
+            <li>조직의 베타 오픈 계획일에 맞춰 <strong>일정 내 오픈 완료</strong></li>
+            <li>온보딩 자료·운영 가이드로 진입장벽을 낮춰 초기 사용 정착을 지원</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="insight">
+            <p class="insight__label">Insight</p>
+            <p class="insight__title">공유 취지와 현실 사이에서 기준 세우기</p>
+            <p>전사 자산 공유로 비효율을 줄이는 것이 목표였지만, 모든 조직이 공유를 반긴 것은 아니었습니다. 자산을 적극 공유하려는 조직도 있었고, 성과와 직결돼 공개를 꺼리는 조직도 있었습니다.</p>
+            <p>그래서 '무조건 통합·공개'가 아니라, 프로젝트별 데이터 접근 권한 제어를 먼저 설계했습니다. 공유가 민감한 조직의 자산은 비공개로 두되, 공유된 에셋은 누구나 볼 수 있게 하고 필요할 때 선택적으로 공유할 수 있는 구조를 만들었습니다.</p>
+            <p>결국 공유 효율과 자산 보호는 충돌하는 가치였고, 이해관계자의 우려를 정책과 운영 구조로 먼저 풀어내는 일이 서비스 기획자의 핵심 역할이라는 점을 배웠습니다.</p>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">03</span>
-          <div class="modal__section-content">
-            <h4>해결 방법</h4>
-            <ul>
-              <li><strong>[프로세스 통합]</strong> 구매/제작 리소스 단일 창구 통합으로 리소스 탐색 및 온보딩 시간 단축</li>
-              <li><strong>[권한 체계 설계]</strong> 리소스 출처별 다운로드 승인 워크플로우 및 프로젝트 기반 접근 제어 설계</li>
-              <li><strong>[표준 가이드 구축]</strong> 전사 공통 메타데이터 표준안 수립 및 실무 운영 가이드 제작</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">04</span>
-          <div class="modal__section-content">
-            <h4>나의 역할</h4>
-            <ul>
-              <li><strong>[문제 정의]</strong> PoC 타겟 인터뷰를 통해 리소스 파편화 및 권한 혼선의 핵심 문제를 정의하고, 메타데이터 표준/접근 제어 정책 등 플랫폼 상위 구조 설계</li>
-              <li><strong>[의사결정 주도]</strong> 표준안 수립 시 부서 간 우선순위 충돌 상황에서, 리소스 접근성과 보안 수준을 객관적 기준으로 제시하여 전사 합의 도출</li>
-              <li><strong>[온보딩]</strong> 전사 공통 가이드 및 온보딩 문서를 제작/배포를 통해 신규 플랫폼의 초기 사용 정착 지원</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">05</span>
-          <div class="modal__section-content">
-            <h4>결과</h4>
-            <ul>
-              <li>리소스 중복 제작 및 구매율 감축</li>
-              <li>수동 운영 공수 최소화 및 보안 리스크 차단</li>
-              <li>신규 플랫폼 전사 조직 안착 달성</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">06</span>
-          <div class="modal__section-content">
-            <h4>인사이트</h4>
-            <p><strong>[공유 효율과 자산 보호의 기준 설계]</strong></p>
-            <p>전사 플랫폼에서 중요한 것은 기능 자체보다 각 조직이 안심하고 리소스를 공유할 수 있는 운영 기준을 먼저 만드는 일이었습니다.</p>
-            <p>리소스가 곧 조직의 자산인 환경에서는 무조건적인 통합보다 접근 제어, 승인 흐름, 메타데이터 기준을 먼저 설계해야 했습니다. 이 경험을 통해 이해관계자의 우려를 정책과 운영 구조로 풀어내는 일이 PM의 핵심 역할이라는 점을 배웠습니다.</p>
-          </div>
-        </div>
+        </section>
+
       </div>
     </div>
   </div>
 
   <!-- Modal 2 -->
-  <div class="modal" id="modal-2" aria-hidden="true">
+  <div class="modal modal--full" id="modal-2" aria-hidden="true">
     <div class="modal__overlay"></div>
     <button type="button" class="modal__edge-nav modal__edge-nav--prev" aria-label="이전 프로젝트">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
@@ -513,85 +438,84 @@
     </button>
     <div class="modal__container">
       <button class="modal__close" aria-label="닫기">&times;</button>
-      <div class="modal__header">
-        <span class="modal__period">2024.09 — 2025.03 | 7개월</span>
-        <h3 class="modal__title">성우 녹음 플랫폼</h3>
-        <div class="modal__scale">
-          <span>팀 3명 (기획 1 / FS 1 / 디자인 1)</span>
-          <span>대상 약 500명</span>
-          <span>협업 4개 조직</span>
+
+      <header class="case__hero">
+        <p class="case__eyebrow">BRIDGE voice · 사내 프로젝트</p>
+        <h3 class="case__title">분산된 성우 녹음 공정을 <span class="hl">하나의 플랫폼</span>으로 통합했어요</h3>
+        <div class="case__meta">
+          <div class="case__meta-item"><span class="case__meta-label">기간</span><span class="case__meta-value">2021.04 — 2025.03 · 초기 구축 + AI 고도화</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">역할</span><span class="case__meta-value">서비스 기획 (PM)</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">팀</span><span class="case__meta-value">3명 · 기획1 FS1 디자인1</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">규모</span><span class="case__meta-value">약 500명 대상 · 협업 4개 조직</span></div>
         </div>
-      </div>
-      <div class="modal__body">
-        <div class="modal__section">
-          <span class="modal__section-num">01</span>
-          <div class="modal__section-content">
-            <h4>문제 정의</h4>
-            <ul>
-              <li>조직마다 녹음 요청 프로세스와 데이터 입력 방식이 상이하여 녹음 공정의 표준화가 불가능했음</li>
-              <li>반복적인 재녹음으로 인해 제작 비용과 리드타임이 지속적으로 증가하고 있었음</li>
-            </ul>
+      </header>
+
+      <div class="case__body">
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">01</span><h4 class="case__section-title">문제 정의</h4></div>
+          <ul class="case__list">
+            <li>조직마다 상이한 녹음 요청 프로세스·데이터 입력 방식 — 공정 표준화 불가</li>
+            <li>반복 재녹음으로 제작 비용·리드타임 지속 증가</li>
+          </ul>
+          <div class="flow" aria-label="녹음 공정 표준화 + AI 자동화 플로우">
+            <div class="flow__title">녹음 공정 표준화 + AI 자동화 플로우</div>
+            <div class="flow__diagram">
+              <div class="flow__step"><span class="flow__step-label">표준 녹음 요청</span><span class="flow__step-sub">조직 공통 양식</span></div>
+              <span class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+              <div class="flow__step"><span class="flow__step-label">녹음 공정</span></div>
+              <span class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+              <div class="flow__step flow__step--accent"><span class="flow__step-label">AI 자동화</span><span class="flow__step-sub">TTS · Facial Animation</span></div>
+              <span class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+              <div class="flow__step"><span class="flow__step-label">검수</span></div>
+              <span class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+              <div class="flow__step"><span class="flow__step-label">납품</span></div>
+            </div>
+            <p class="flow__note">조직별로 상이하던 요청 양식을 표준화하고, 반복 재녹음이 잦던 구간에 AI 자동화를 적용해 제작 시간을 단축하고 제작 동선을 일원화했습니다.</p>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">02</span>
-          <div class="modal__section-content">
-            <h4>목표</h4>
-            <ul>
-              <li>국내외 녹음 공정을 표준화</li>
-              <li>AI 기술을 결합한 자동화 시나리오를 설계하여 제작 비용과 리드타임을 대폭 절감</li>
-            </ul>
+          <div class="modal__media">
+            <div class="modal__media-wrap">
+              <img class="modal__media-img" src="images/voice-workflow.png" alt="BRIDGE voice 표준 녹음 워크플로우 설계도" width="2048" height="851" loading="lazy" onerror="this.closest('.modal__media').style.display='none'">
+            </div>
+            <p class="modal__media-caption">전사 공통 녹음 관리 워크플로우 설계도 — 기획부터 납품까지 직군별 동선을 표준화</p>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">03</span>
-          <div class="modal__section-content">
-            <h4>해결 방법</h4>
-            <ul>
-              <li><strong>[워크플로우 표준화]</strong> 조직별로 상이하던 녹음 요청 데이터 입력 표준안을 수립하여 전사 공통 녹음 관리 워크플로우 설계</li>
-              <li><strong>[자동화 시나리오]</strong> AI(TTS 및 Facial Animation) 기술을 녹음 공정에 결합한 자동화 시나리오 기획으로 반복적인 재녹음 공정 최소화</li>
-              <li><strong>[확산 전략]</strong> 주요 성공 사례(Best Case) 정의 및 전사 확산 전략 수립</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">04</span>
-          <div class="modal__section-content">
-            <h4>나의 역할</h4>
-            <ul>
-              <li><strong>[표준안 수립]</strong> 전사 공통 녹음 관리 워크플로우 설계 및 데이터 입력 표준안 수립</li>
-              <li><strong>[요구사항 조율]</strong> AI 조직과 프로젝트 팀 요구사항을 구현 가능성 기준으로 정리해 플랫폼 범위를 구체화</li>
-              <li><strong>[우선순위 합의]</strong> 요구사항이 상충할 때 실현 가능성과 비용 대비 효과를 기준으로 우선순위를 정해 이해관계자 합의를 이끌어냄</li>
-              <li><strong>[전사 안착]</strong> 주요 성공 사례를 정리하고 확산 계획을 세워 녹음 필요 조직 대부분에 적용</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">05</span>
-          <div class="modal__section-content">
-            <h4>결과</h4>
-            <ul>
-              <li>제작 비용 30% 이상 절감</li>
-              <li>제작 리드타임 40% 단축</li>
-              <li>녹음 필요 조직 대부분에 적용하고 운영 리소스 최소화</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">06</span>
-          <div class="modal__section-content">
-            <h4>인사이트</h4>
-            <p><strong>[기술보다 먼저 봐야 할 것은 작업 흐름]</strong></p>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">02</span><h4 class="case__section-title">역할</h4></div>
+          <ul class="case__list">
+            <li><strong>표준안 수립</strong> — 전사 공통 녹음 관리 워크플로우 설계 및 데이터 입력 표준안 수립</li>
+            <li><strong>요구사항 조율</strong> — AI 조직과 프로젝트 팀 요구사항을 구현 가능성 기준으로 정리해 플랫폼 범위 구체화</li>
+            <li><strong>우선순위 합의</strong> — 요구사항 상충 시 실현 가능성과 비용 대비 효과를 기준으로 이해관계자 합의 도출</li>
+            <li><strong>전사 안착</strong> — 주요 성공 사례를 정리하고 확산 계획을 세워 녹음 필요 조직 대부분에 적용</li>
+            <li><strong>초기 구축</strong> — Lo-Fi 화면 기획서·기능명세서 작성, 유저 가이드·전수 QA 테스트 케이스 작성, Scrum·Figma 도입</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">03</span><h4 class="case__section-title">성과</h4></div>
+          <ul class="case__list">
+            <li>TTS 연동으로 테스트 녹음 제작 시간 <strong>약 40% 단축</strong></li>
+            <li>데이터 입력 → 녹음(또는 TTS) → Facial Animation까지 단일 플랫폼으로 제작 동선 일원화</li>
+            <li>분산되어 있던 녹음 제작 관리 방식을 표준화하고 신규 플랫폼 정식 오픈 완수</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="insight">
+            <p class="insight__label">Insight</p>
+            <p class="insight__title">기술보다 먼저 봐야 할 것은 작업 흐름</p>
             <p>기술이 좋아도 실제 공정에 맞지 않으면 현업에서 지속적으로 쓰이기 어렵다는 점을 확인했습니다.</p>
             <p>이 프로젝트에서는 AI 모델 자체보다 제작자가 시간을 많이 쓰는 구간을 먼저 찾고, 그 지점에 자동화 포인트를 넣는 데 집중했습니다. 그 결과 기술 도입보다 작업 흐름과 예외 처리를 먼저 설계하는 일이 비용 절감과 현업 적용에 더 중요하다는 기준을 갖게 됐습니다.</p>
           </div>
-        </div>
+        </section>
+
       </div>
     </div>
   </div>
 
   <!-- Modal 3 -->
-  <div class="modal" id="modal-3" aria-hidden="true">
+  <div class="modal modal--full" id="modal-3" aria-hidden="true">
     <div class="modal__overlay"></div>
     <button type="button" class="modal__edge-nav modal__edge-nav--prev" aria-label="이전 프로젝트">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
@@ -601,178 +525,79 @@
     </button>
     <div class="modal__container">
       <button class="modal__close" aria-label="닫기">&times;</button>
-      <div class="modal__header">
-        <span class="modal__period">2024.03 — 2024.07 | 5개월</span>
-        <h3 class="modal__title">전사 통합 용어 관리 플랫폼 (TMS)</h3>
-        <div class="modal__scale">
-          <span>팀 4명 (기획 1 / FE 1 / BE 1 / 디자인 1)</span>
-          <span>대상 전사 4,000명</span>
-          <span>협업 2개 조직</span>
+
+      <header class="case__hero">
+        <p class="case__eyebrow">BRIDGE finder · 사내 프로젝트</p>
+        <h3 class="case__title">수기 업로드로 쌓이던 <span class="hl">용어 오류</span>를 자동화로 없앴어요</h3>
+        <div class="case__meta">
+          <div class="case__meta-item"><span class="case__meta-label">기간</span><span class="case__meta-value">2024.03 — 2024.07 · 5개월</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">역할</span><span class="case__meta-value">서비스 기획 (PM)</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">팀</span><span class="case__meta-value">4명 · 기획1 FE1 BE1 디자인1</span></div>
+          <div class="case__meta-item"><span class="case__meta-label">규모</span><span class="case__meta-value">전사 4,000명 · 협업 2개 조직</span></div>
         </div>
-      </div>
-      <div class="modal__body">
-        <div class="modal__section">
-          <span class="modal__section-num">01</span>
-          <div class="modal__section-content">
-            <h4>문제 정의</h4>
-            <ul>
-              <li>용어 관리가 엑셀 기반 수기 업로드 방식으로 운영되어 데이터 누락과 휴먼 에러가 빈번했음</li>
-              <li>번역된 용어의 재사용 체계가 없어 중복 번역 요청이 반복되고 서비스 용어 일관성이 확보되지 못했음</li>
-            </ul>
+      </header>
+
+      <div class="case__body">
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">01</span><h4 class="case__section-title">문제 정의</h4></div>
+          <ul class="case__list">
+            <li>엑셀 기반 수기 업로드 운영으로 데이터 누락·휴먼 에러 빈번</li>
+            <li>번역 용어 재사용 체계 부재 — 중복 번역 반복·서비스 용어 일관성 미확보</li>
+          </ul>
+          <div class="flow" aria-label="용어 등록 → 번역 → 동기화 자동화 플로우">
+            <div class="flow__title">용어 등록 → 번역 → 동기화 자동화 플로우</div>
+            <div class="flow__diagram">
+              <div class="flow__step"><span class="flow__step-label">용어 등록</span><span class="flow__step-sub">플랫폼 입력</span></div>
+              <span class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+              <div class="flow__step flow__step--accent"><span class="flow__step-label">TMS 연동 번역</span></div>
+              <span class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+              <div class="flow__step flow__step--accent"><span class="flow__step-label">자동 동기화</span><span class="flow__step-sub">확정 데이터</span></div>
+              <span class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></span>
+              <div class="flow__step"><span class="flow__step-label">용어 재사용 (TM)</span></div>
+            </div>
+            <p class="flow__note">기존 엑셀 수기 업로드 방식을 TMS API 연동으로 전환해 휴먼 에러를 차단하고, 번역된 용어를 재사용해 중복 번역 요청을 줄였습니다.</p>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">02</span>
-          <div class="modal__section-content">
-            <h4>목표</h4>
-            <ul>
-              <li>분산된 용어 관리 체계를 전사 통합</li>
-              <li>번역 플랫폼(MemoQ)과의 연계를 통해 중복 번역을 최소화하고 서비스 용어 일관성을 확보</li>
-            </ul>
+          <div class="modal__media">
+            <div class="modal__media-wrap">
+              <img class="modal__media-img" src="images/finder-screens.png" alt="BRIDGE finder 용어집 다운로드·업로드·Admin 화면 설계" width="1390" height="849" loading="lazy" onerror="this.closest('.modal__media').style.display='none'">
+            </div>
+            <p class="modal__media-caption">용어집 다운로드·업로드·Admin 페이지 화면 설계 (산출물 이미지는 사내 자료로 블러 처리)</p>
           </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">03</span>
-          <div class="modal__section-content">
-            <h4>해결 방법</h4>
-            <ul>
-              <li><strong>[연동 체계]</strong> 엑셀 기반 수기 업로드 방식을 MemoQ API 연동 체계로 전환하여 데이터 누락 및 휴먼 에러를 근본적으로 차단</li>
-              <li><strong>[번역 프로세스]</strong> '플랫폼 용어 등록 → MemoQ 번역 수행 → 확정 데이터 자동 동기화' 프로세스 설계로 번역 데이터의 최신성 및 신뢰도 확보</li>
-              <li><strong>[재사용 구조]</strong> 이미 번역된 용어의 자동 호출 및 재사용 구조를 구축하여 불필요한 중복 번역 요청 최소화</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">04</span>
-          <div class="modal__section-content">
-            <h4>나의 역할</h4>
-            <ul>
-              <li><strong>[스펙 조율]</strong> 현지화 조직의 요구사항을 API 규격으로 구체화하여 개발 조직과 조율</li>
-              <li><strong>[기준 정리]</strong> 현지화 조직과 개발 조직 간 스펙 해석이 어긋날 때 API 규격과 데이터 플로우를 문서로 정리해 공통 기준을 제시하여 갈등을 해소</li>
-              <li><strong>[안착 지원]</strong> 실무 매뉴얼 배포를 통해 신규 운영 체계 안착 지원</li>
-              <li><strong>[플로우 설계]</strong> 전체 번역 데이터 플로우 설계 및 이해관계자 간 합의 도출</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">05</span>
-          <div class="modal__section-content">
-            <h4>결과</h4>
-            <ul>
-              <li>중복 번역 요청 30% 감소</li>
-              <li>용어 관리 기준 일원화</li>
-              <li>번역부터 반영까지의 리드타임 단축</li>
-            </ul>
-          </div>
-        </div>
-        <div class="modal__section">
-          <span class="modal__section-num">06</span>
-          <div class="modal__section-content">
-            <h4>인사이트</h4>
-            <p><strong>[기술 도입보다 중요한 것은 일하는 방식의 전환]</strong></p>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">02</span><h4 class="case__section-title">역할</h4></div>
+          <ul class="case__list">
+            <li><strong>스펙 조율</strong> — 현지화 조직의 요구사항을 API 규격으로 구체화하여 개발 조직과 조율</li>
+            <li><strong>기준 정리</strong> — 스펙 해석이 어긋날 때 API 규격과 데이터 플로우를 문서로 정리해 공통 기준 제시 및 갈등 해소</li>
+            <li><strong>플로우 설계</strong> — 전체 번역 데이터 플로우 설계 및 이해관계자 간 합의 도출</li>
+            <li><strong>안착 지원</strong> — 실무 매뉴얼 배포를 통해 신규 운영 체계 안착 지원</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="case__section-head"><span class="case__section-num">03</span><h4 class="case__section-title">성과</h4></div>
+          <ul class="case__list">
+            <li>중복 번역 감소 — 검증된 용어 재사용 체계 구축</li>
+            <li>용어 관리 기준 일원화</li>
+            <li>번역부터 반영까지의 리드타임 단축</li>
+          </ul>
+        </section>
+
+        <section class="case__section">
+          <div class="insight">
+            <p class="insight__label">Insight</p>
+            <p class="insight__title">기술 도입보다 중요한 것은 일하는 방식의 전환</p>
             <p>시스템 도입 자체보다, 수기 중심 업무를 새로운 규격에 맞게 전환하는 과정이 더 중요하다는 점을 배웠습니다.</p>
             <p>특히 현지화 조직의 요구사항을 API 규격과 데이터 플로우로 정리해 개발 조직과 공통 기준을 만드는 일이 프로젝트의 핵심이었습니다. 이후에는 기능 추가보다도 운영 주체가 같은 기준으로 일할 수 있는 구조를 먼저 설계하려고 합니다.</p>
           </div>
-        </div>
+        </section>
+
       </div>
     </div>
   </div>
 
-  <!-- Competencies -->
-  <section class="section competencies" id="competencies">
-    <div class="container">
-      <h2 class="section__title fade-up">핵심역량</h2>
-      <div class="competencies__grid">
-
-        <div class="comp-card comp-card--has-img fade-up" data-comp-modal="0">
-          <span class="comp-card__num">01</span>
-          <h4 class="comp-card__title">PRD 기획 / 문제 구조화</h4>
-          <p class="comp-card__desc">문제 정의와 요구사항을 PRD로 구조화하고, 이해관계자와 스코프를 합의한 뒤 기획을 시작합니다.</p>
-          <img class="comp-card__img" src="images/comp-prd.png" alt="PRD 기획 문서">
-        </div>
-
-        <div class="comp-card comp-card--has-img fade-up" data-comp-modal="1">
-          <span class="comp-card__num">02</span>
-          <h4 class="comp-card__title">프로세스 설계 및 표준화</h4>
-          <p class="comp-card__desc">전사 공통 워크플로우를 설계하고 운영 체계를 구축하여 조직 간 일관된 프로세스를 정착시킵니다.</p>
-          <img class="comp-card__img" src="images/comp-workflow.png" alt="업무 프로세스 워크플로우">
-        </div>
-
-        <div class="comp-card comp-card--has-img fade-up" data-comp-modal="2">
-          <span class="comp-card__num">03</span>
-          <h4 class="comp-card__title">일정 및 우선순위 관리</h4>
-          <p class="comp-card__desc">마일스톤/스프린트 단위로 일정을 수립하고, 사내 일감 관리 도구를 기반으로 진행 상황과 우선순위를 관리합니다.</p>
-          <img class="comp-card__img" src="images/comp-schedule.png" alt="일정 및 우선순위 관리">
-        </div>
-
-      </div>
-      <div class="competencies__grid--bottom">
-
-        <div class="comp-card comp-card--has-img fade-up" data-comp-modal="3">
-          <span class="comp-card__num">04</span>
-          <h4 class="comp-card__title">회고 및 개선</h4>
-          <p class="comp-card__desc">릴리즈 후 정량/정성 데이터를 기반으로 회고하고, 개선점을 다음 스프린트에 반영합니다.</p>
-          <img class="comp-card__img" src="images/comp-retro.png" alt="회고 문서">
-        </div>
-
-        <div class="comp-card fade-up" data-comp-modal="4">
-          <span class="comp-card__num">05</span>
-          <h4 class="comp-card__title">Cross-Functional 조율</h4>
-          <p class="comp-card__desc">개발, 디자인, AI, 운영 등 다부서 간 요구사항을 조율하고 의사결정 구조를 수립합니다.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Competency Modal -->
-  <div class="comp-modal" id="compModal" aria-hidden="true">
-    <div class="comp-modal__overlay"></div>
-    <div class="comp-modal__container">
-      <button class="comp-modal__close" aria-label="닫기">&times;</button>
-      <button class="comp-modal__nav comp-modal__nav--prev" aria-label="이전">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <button class="comp-modal__nav comp-modal__nav--next" aria-label="다음">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-      </button>
-      <div class="comp-modal__body">
-        <div class="comp-modal__img-wrap">
-          <img class="comp-modal__img" src="" alt="">
-        </div>
-        <div class="comp-modal__info">
-          <span class="comp-modal__num"></span>
-          <h3 class="comp-modal__title"></h3>
-          <p class="comp-modal__desc"></p>
-        </div>
-      </div>
-      <div class="comp-modal__counter"></div>
-    </div>
-  </div>
-
-  <!-- Contact -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <h2 class="section__title fade-up">연락처</h2>
-      <p class="contact__desc fade-up">프로젝트 협업이나 채용 관련 문의는 편하게 연락해 주세요.</p>
-      <div class="contact__grid fade-up">
-        <a href="mailto:taehopark94@gmail.com" class="contact-card">
-          <div class="contact-card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <span class="contact-card__label">이메일</span>
-          <span class="contact-card__value">taehopark94@gmail.com</span>
-        </a>
-        <a href="https://www.linkedin.com/in/park406" target="_blank" rel="noopener noreferrer" class="contact-card">
-          <div class="contact-card__icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </div>
-          <span class="contact-card__label">LinkedIn</span>
-          <span class="contact-card__value">linkedin.com/in/park406</span>
-        </a>
-      </div>
-    </div>
-  </section>
 
   <footer class="footer">
     <div class="container">

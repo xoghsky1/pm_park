@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(cd \"/Users/ttpark/Desktop/Park/경력채용/resume/공통\" && ls -la && file \"박태호_포트폴리오.pptx\")",
+      "Bash(brew list *)"
+    ]
+  }
+}
