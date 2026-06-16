@@ -560,15 +560,19 @@ button {
   color: var(--color-text-secondary);
   line-height: 1.8;
   letter-spacing: -0.005em;
+  max-width: 46ch;
+  text-wrap: pretty;
 }
 
 .about__philosophy-headline {
   display: block;
+  max-width: 32ch;
   font-size: var(--fs-h3);
   color: var(--color-text-primary);
   line-height: 1.45;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-md);
+  text-wrap: pretty;
 }
 
 /* Career block */
