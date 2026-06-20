@@ -314,12 +314,11 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTransform();
   });
 
-  // Ctrl + wheel zoom
+  // Wheel zoom (Ctrl or plain scroll)
   lightbox.addEventListener('wheel', (e) => {
-    if (!e.ctrlKey) return;
     e.preventDefault();
     const delta = e.deltaY < 0 ? 1.15 : 0.85;
-    lbScale = Math.min(Math.max(lbScale * delta, 1), 3);
+    lbScale = Math.min(Math.max(lbScale * delta, 1), 6);
     if (lbScale === 1) { lbTx = 0; lbTy = 0; }
     applyTransform();
   }, { passive: false });
