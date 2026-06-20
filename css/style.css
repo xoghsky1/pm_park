@@ -1557,8 +1557,8 @@ button {
 
 .projects__side-label {
   font-size: var(--fs-xxs);
-  font-weight: var(--fw-regular);
-  color: var(--color-text-tertiary);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-bottom: var(--space-xl);
